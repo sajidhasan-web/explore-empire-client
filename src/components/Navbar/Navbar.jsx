@@ -58,24 +58,17 @@ const Navbar = () => {
                 Add Tourists Spot
               </NavLink>
             </li>
-            
-            <li>
-              <NavLink>Contact</NavLink>
-            </li>
             <li>
               <NavLink
-                to={"/login"}
+                to={"/allTouristsSpot"}
                 className={({ isActive }) =>
                   isActive
                     ? "border-b-2 dark:border-white flex items-center px-4 -mb-1"
                     : "flex items-center px-4 -mb-1"
                 }
               >
-                Login
+                All Tourists Spot
               </NavLink>
-            </li>
-            <li>
-              <NavLink>Register</NavLink>
             </li>
           </ul>
         </div>

@@ -1,5 +1,11 @@
-const AddTouristsSpot = () => {
+import { useContext } from "react";
+import { AuthContext } from "../providers/FirebaseProvider";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const AddTouristsSpot = () => {
+    const {user} = useContext(AuthContext)
+   
     const handleAddSpot = (e)=>{
         e.preventDefault();
         const form = e.target;
@@ -12,9 +18,34 @@ const AddTouristsSpot = () => {
         const seasonality = form.seasonality.value;
         const travelTime = form.travelTime.value + "days";
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
-        console.log(imageURL, touristsSpotName, countryName, location,  shortDescription, averageCost, seasonality, travelTime, totalVisitorsPerYear);
+        const whoAdded = user.email
+        console.log(imageURL, touristsSpotName, countryName, location,  shortDescription, averageCost, seasonality, travelTime, totalVisitorsPerYear, whoAdded);
 
-        fetch()
+        fetch('http://localhost:5000/spots', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                imageURL,
+                touristsSpotName,
+                countryName,
+                location,
+                shortDescription,
+                averageCost,
+                seasonality,
+                travelTime,
+                totalVisitorsPerYear,
+                whoAdded
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                toast.success('New Tourists spot added successfully')
+            }
+        })
         
     }
 

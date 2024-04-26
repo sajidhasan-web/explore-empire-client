@@ -66,7 +66,8 @@ const FirebaseProvider = ({children}) => {
         logOut,
         loginUser,
         logInWithGoogle,
-        updateProfileInfo
+        updateProfileInfo,
+        loading
     }
 
 
