@@ -7,18 +7,15 @@ const AllTouristsSpot = () => {
     const [touristsData, setTouristsData] = useState([]);
   
     useEffect(() => {
-      // Fetch data from the database
       fetch("http://localhost:5000/spots")
         .then((response) => response.json())
         .then((data) => {
-          // Update state with fetched data
+           
           setTouristsData(data);
-          // Set loading to false when data fetching is complete
           setIsLoading(false);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
-          // Set loading to false if there's an error
           setIsLoading(false);
         });
     }, []);
@@ -37,20 +34,20 @@ const AllTouristsSpot = () => {
 
 
   return (
-    <div>
+    <div className="container mx-auto">
       <h1>All Tourists Spot {touristsData.length}</h1>
-      <div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {
         touristsData.map( touristsSpot => <>
           <div>
-            <div className="max-w-sm rounded overflow-hidden shadow-lg">
+            <div className=" rounded overflow-hidden shadow-lg">
               <img src={touristsData.imageURL} alt={touristsData.touristsSpotName} className="w-full" />
               <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{touristsData.touristsSpotName}</div>
+                <div className="font-bold text-xl mb-2">{touristsSpot.touristsSpotName}</div>
                 <p className="text-gray-700 text-base">
-                  Average Cost: {touristsData.averageCost} | Total Visitors Per Year:{" "}
-                  {touristsData.totalVisitorsPerYear} | Travel Time: {touristsData.travelTime} |
-                  Seasonality: {touristsData.seasonality}
+                  Average Cost: {touristsSpot.averageCost} | Total Visitors Per Year:{" "}
+                  {touristsSpot.totalVisitorsPerYear} | Travel Time: {touristsSpot.travelTime} |
+                  Seasonality: {touristsSpot.seasonality}
                 </p>
               </div>
               <div className="px-6 py-4">
