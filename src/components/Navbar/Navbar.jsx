@@ -48,14 +48,14 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to={"/register"}
+                to={"/addTouristsSpot"}
                 className={({ isActive }) =>
                   isActive
                     ? "border-b-2 dark:border-white flex items-center px-4 -mb-1"
                     : "flex items-center px-4 -mb-1"
                 }
               >
-                Register
+                Add Tourists Spot
               </NavLink>
             </li>
             
@@ -101,11 +101,18 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <Link to={"/login"}>
+            <div className="space-x-2">
+              <Link to={"/login"}>
                  <button className="btn  btn-md bg-transparent hover:opacity-90 hover:text-[#0D6EFD] text-white font-bold border border-white">
                   login
                 </button>
             </Link>
+            <Link to={"/register"}>
+                 <button className="btn  btn-md bg-transparent hover:opacity-90 hover:text-[#0D6EFD] text-white font-bold border border-white">
+                  register
+                </button>
+             </Link>
+            </div>
           )}
         </div>
         <div className="lg:hidden">

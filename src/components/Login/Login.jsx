@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../providers/FirebaseProvider";
+import Footer from "../Footer/Footer";
 
 const Login = () => {
  
@@ -40,7 +41,8 @@ const Login = () => {
 
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
+    <div className="flex flex-col h-screen  justify-center items-center dark:bg-gray-50">
+      <div className="w-full max-w-md p-8 space-y-3 border shadow-lg dark:bg-gray-50 dark:text-gray-800">
       <h1 className="text-2xl font-bold text-center">Login</h1>
       <form onSubmit={handleLogin} className="space-y-6">
         <div className="space-y-1 text-sm">
@@ -109,14 +111,15 @@ const Login = () => {
           </svg>
         </button>
       </div>
-      <p className="text-xs text-center sm:px-6 text-gray-400">
+      <p className="text-center sm:px-6">
         Do not have an account?
         <Link to={"/register"}
-          className="underline text-gray-100 link"
+          className="hover:underline text-blue-700 ml-2"
         >
           register
         </Link>
       </p>
+      </div>
     </div>
   );
 };
