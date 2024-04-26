@@ -1,12 +1,29 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { AuthContext } from "../../providers/FirebaseProvider";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const { user, logOut} = useContext(AuthContext);
 
-  console.log(showSidebar);
+  const handleSignOut = () => {
+    logOut()
+    .then(result => {
+        console.log(result.user);
+        toast.success('User signed out successfully')
+    })
+    .catch(error => {
+        toast.error(error.message)
+    })
+  }
+  
+
   return (
     <div>
       <div className="flex justify-between items-center bg-[#0D6EFD] p-5">
@@ -18,16 +35,44 @@ const Navbar = () => {
         <div className="hidden lg:flex">
           <ul className="flex items-center gap-5 text-white">
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 dark:border-white flex items-center px-4 -mb-1"
+                    : "flex items-center px-4 -mb-1"
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink>About</NavLink>
+              <NavLink
+                to={"/register"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 dark:border-white flex items-center px-4 -mb-1"
+                    : "flex items-center px-4 -mb-1"
+                }
+              >
+                Register
+              </NavLink>
             </li>
+            
             <li>
               <NavLink>Contact</NavLink>
             </li>
             <li>
-              <NavLink>Login</NavLink>
+              <NavLink
+                to={"/login"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 dark:border-white flex items-center px-4 -mb-1"
+                    : "flex items-center px-4 -mb-1"
+                }
+              >
+                Login
+              </NavLink>
             </li>
             <li>
               <NavLink>Register</NavLink>
@@ -35,9 +80,33 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="hidden lg:flex">
-          <button className="btn btn-sm md:btn-md lg:btn-lg bg-transparent hover:opacity-90 hover:text-[#0D6EFD] text-white font-bold border border-white">
-            login
-          </button>
+          {user ? (
+            <div className="space-x-3 flex items-center">
+              <div className="avatar">
+                <div
+                  className="w-12"
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={user?.displayName || "unknown"}
+                  data-tooltip-place="top"
+                >
+                  <Tooltip id="my-tooltip" />
+                  <img
+                    className="rounded-full"
+                    src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+                  />
+                </div>
+              </div>
+              <button onClick={handleSignOut} className="btn btn-md bg-transparent hover:opacity-90 hover:text-[#0D6EFD] text-white font-bold border border-white">
+                LogOut
+              </button>
+            </div>
+          ) : (
+            <Link to={"/login"}>
+                 <button className="btn  btn-md bg-transparent hover:opacity-90 hover:text-[#0D6EFD] text-white font-bold border border-white">
+                  login
+                </button>
+            </Link>
+          )}
         </div>
         <div className="lg:hidden">
           <button onClick={() => setShowSidebar(!showSidebar)} className="btn">
@@ -60,20 +129,22 @@ const Navbar = () => {
         } transition-all duration-300`}
       >
         <div>
-           <div className="flex p-3 justify-center space-y-5 flex-col items-center border-b border-b-white">
-               <div className="w-24">
-                <img className="rounded-full" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-               </div>
-               <h4>Md. Sajid Hasan</h4>
-           </div>
-          
+          <div className="flex p-3 justify-center space-y-5 flex-col items-center border-b border-b-white">
+            <div className="w-20">
+              <img
+                className="rounded-full"
+                src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+              />
+            </div>
+            <h4>{user?.displayName}</h4>
+          </div>
         </div>
         <ul className="space-y-2 mt-3 flex flex-col items-center">
           <li>
             <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/register"}>Register</NavLink>
           </li>
           <li>
             <NavLink to={"/"}>Home</NavLink>
