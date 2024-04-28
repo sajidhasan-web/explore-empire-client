@@ -141,7 +141,7 @@ const UpdateSpot = () => {
             <div className="space-y-1 text-sm md:col-span-6">
               <label className="block text-gray-400">Average cost</label>
               <input
-                type="number"
+                type="text"
                 name="averageCost"
                 defaultValue={spot.averageCost}
                 placeholder="Enter average cost amount"
@@ -161,17 +161,17 @@ const UpdateSpot = () => {
             <div className="space-y-1 text-sm md:col-span-6">
               <label className="block text-gray-400">Travel Time</label>
               <input
-                type="number"
+                type="text"
                 name="travelTime"
                 defaultValue={spot.travelTime}
-                placeholder="Enter travel time number of days “E.g.” 1 , 2 , 3  etc."
+                placeholder="Enter travel time number of days “Ex.” 1 day , 2 days , 3 days  etc."
                 className="w-full px-4 py-3 rounded-md border-2"
               />
             </div>
             <div className="space-y-1 text-sm md:col-span-6">
               <label className="block text-gray-400">Total Visitors Per Year</label>
               <input
-                type="number"
+                type="text"
                 name="totalVisitorsPerYear"
                 defaultValue={spot.totalVisitorsPerYear}
                 placeholder="Enter the number of visitor visit per year"

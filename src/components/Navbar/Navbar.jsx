@@ -38,8 +38,9 @@ const Navbar = () => {
   }
 
   return (
-    <div>
-      <div className="flex justify-between items-center bg-[#0D6EFD] p-5">
+    <div className="bg-[#0D6EFD]">
+      <div className="container mx-auto ">
+      <div className="flex justify-between items-center p-5">
         <div>
           <h1 className="text-3xl font-bold text-white opacity-90">
             Lets Tour
@@ -178,6 +179,7 @@ const Navbar = () => {
           </button>
         </div>
         </div>
+      </div>
       </div>
       {/* <div className={`lg:hidden bg-blue-400 transition-transform delay-400 h-screen  ${showSidebar ? 'absolute top-22 right-0' : 'absolute hidden translate-x-60'}`}>
             this is sidebar

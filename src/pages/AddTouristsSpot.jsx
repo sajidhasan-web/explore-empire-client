@@ -21,7 +21,7 @@ const AddTouristsSpot = () => {
     const shortDescription = form.shortDescription.value;
     const averageCost = form.averageCost.value;
     const seasonality = form.seasonality.value;
-    const travelTime = form.travelTime.value + " " + "days";
+    const travelTime = form.travelTime.value
     const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
     const whoAdded = user.email;
     console.log(
@@ -62,6 +62,7 @@ const AddTouristsSpot = () => {
           toast.success("New Tourists spot added successfully");
         }
       });
+      form.reset();
   };
 
   return (
@@ -128,7 +129,7 @@ const AddTouristsSpot = () => {
         <div className="space-y-1 text-sm md:col-span-6">
           <label className="block text-gray-400">Average cost</label>
           <input
-            type="number"
+            type="text"
             name="averageCost"
             placeholder="Enter average cost amount"
             className="w-full px-4 py-3 rounded-md border-2"
@@ -146,16 +147,16 @@ const AddTouristsSpot = () => {
         <div className="space-y-1 text-sm md:col-span-6">
           <label className="block text-gray-400">Travel Time</label>
           <input
-            type="number"
+            type="text"
             name="travelTime"
-            placeholder="Enter travel time number of days “E.g.” 1 , 2 , 3  etc."
+            placeholder="Enter travel time number of days “Ex.” 1 day , 2 day , 3 day etc."
             className="w-full px-4 py-3 rounded-md border-2"
           />
         </div>
         <div className="space-y-1 text-sm md:col-span-6">
           <label className="block text-gray-400">Total Visitors Per Year</label>
           <input
-            type="number"
+            type="text"
             name="totalVisitorsPerYear"
             placeholder="Enter the number of visitor visit per year"
             className="w-full px-4 py-3 rounded-md border-2"

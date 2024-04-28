@@ -91,7 +91,7 @@ const Slider = () => {
   const slide4 = 'https://i.ibb.co/qmHDB0r/slide4.jpg';
 
   return (
-    <>
+    <div className="container mx-auto mt-5 md:mt-8 lg:mt-12 px-5">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -105,11 +105,11 @@ const Slider = () => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper rounded-xl"
       >
         <SwiperSlide>
           <div
-            className="bg-cover bg-no-repeat bg-center w-full"
+            className="bg-cover bg-no-repeat bg-center w-full rounded-xl"
             style={{
               backgroundImage: `url(${slide1})`,
               paddingBottom: "50%",
@@ -118,7 +118,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="bg-cover bg-no-repeat bg-center w-full"
+            className="bg-cover bg-no-repeat bg-center w-full rounded-xl"
             style={{
               backgroundImage: `url(${slide2})`,
               paddingBottom: "50%", 
@@ -127,7 +127,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="bg-cover bg-no-repeat bg-center w-full"
+            className="bg-cover bg-no-repeat bg-center w-full rounded-xl"
             style={{
               backgroundImage: `url(${slide3})`,
               paddingBottom: "50%", 
@@ -136,7 +136,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="bg-cover bg-no-repeat bg-center w-full"
+            className="bg-cover bg-no-repeat bg-center w-full rounded-xl"
             style={{
               backgroundImage: `url(${slide4})`,
               paddingBottom: "50%", 
@@ -144,7 +144,7 @@ const Slider = () => {
           ></div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
 
