@@ -21,7 +21,7 @@ const AddTouristsSpot = () => {
     const shortDescription = form.shortDescription.value;
     const averageCost = form.averageCost.value;
     const seasonality = form.seasonality.value;
-    const travelTime = form.travelTime.value + "days";
+    const travelTime = form.travelTime.value + " " + "days";
     const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
     const whoAdded = user.email;
     console.log(

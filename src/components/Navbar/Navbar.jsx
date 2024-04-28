@@ -83,6 +83,18 @@ const Navbar = () => {
                 All Tourists Spot
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to={"/myListPage"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 dark:border-white flex items-center px-4 -mb-1"
+                    : "flex items-center px-4 -mb-1"
+                }
+              >
+                My List Page
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="flex gap-5 items-center">

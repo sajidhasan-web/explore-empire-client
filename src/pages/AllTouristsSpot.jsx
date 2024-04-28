@@ -10,7 +10,7 @@ const AllTouristsSpot = () => {
       fetch("http://localhost:5000/spots")
         .then((response) => response.json())
         .then((data) => {
-           
+           console.log(data);
           setTouristsData(data);
           setIsLoading(false);
         })
