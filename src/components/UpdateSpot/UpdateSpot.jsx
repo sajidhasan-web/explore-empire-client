@@ -13,7 +13,7 @@ const UpdateSpot = () => {
     console.log(id);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/updateSpot/${id}`)
+        fetch(`https://b9a10-tourism-management-server.vercel.app/updateSpot/${id}`)
        .then(res => res.json())
        .then(data => {
         console.log(data);
@@ -50,7 +50,7 @@ const UpdateSpot = () => {
         totalVisitorsPerYear,
        }
     
-        fetch(`http://localhost:5000/updateSpot/${id}`, {
+        fetch(`https://b9a10-tourism-management-server.vercel.app/updateSpot/${id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -69,6 +69,9 @@ const UpdateSpot = () => {
             console.error("Error updating tourist spot:", error);
             toast.error("An error occurred while updating tourist spot");
         });
+
+        
+        form.reset()
       };
 
       
@@ -183,7 +186,7 @@ const UpdateSpot = () => {
               type="submit"
               className="md:col-span-12 block w-full p-3 text-center font-bold text-white rounded-sm bg-violet-400"
             >
-              Add
+              Update
             </button>
           </form>
         </div>

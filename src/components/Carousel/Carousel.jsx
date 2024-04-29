@@ -83,6 +83,7 @@ import "swiper/css/navigation";
 
 // Import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Typewriter } from "react-simple-typewriter";
 
 const Slider = () => {
   const slide1 = 'https://i.ibb.co/4sftb0C/slide1.jpg';
@@ -114,7 +115,22 @@ const Slider = () => {
               backgroundImage: `url(${slide1})`,
               paddingBottom: "50%",
             }}
-          ></div>
+          > <h1 className="font-bold text-center lg:text-6xl text-white" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'bold' }}>
+          Explore the world {' '}
+          <span className="text-orange-400" style={{ fontWeight: 'bold' }}>
+            {/* Style will be inherited from the parent element */}
+            <Typewriter
+              words={['together']}
+              loop={5}
+              cursor
+              cursorStyle='_'
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+             
+            />
+          </span>
+        </h1></div>
         </SwiperSlide>
         <SwiperSlide>
           <div
@@ -123,7 +139,22 @@ const Slider = () => {
               backgroundImage: `url(${slide2})`,
               paddingBottom: "50%", 
             }}
-          ></div>
+          ><h1 className="font-bold text-center lg:text-6xl text-white" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'bold' }}>
+          Explore the world {' '}
+          <span className="text-orange-400" style={{ fontWeight: 'bold' }}>
+            {/* Style will be inherited from the parent element */}
+            <Typewriter
+              words={['together']}
+              loop={5}
+              cursor
+              cursorStyle='_'
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+             
+            />
+          </span>
+        </h1></div>
         </SwiperSlide>
         <SwiperSlide>
           <div
@@ -132,7 +163,22 @@ const Slider = () => {
               backgroundImage: `url(${slide3})`,
               paddingBottom: "50%", 
             }}
-          ></div>
+          ><h1 className="font-bold text-center lg:text-6xl text-white" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'bold' }}>
+          Explore the world {' '}
+          <span className="text-orange-400" style={{ fontWeight: 'bold' }}>
+            {/* Style will be inherited from the parent element */}
+            <Typewriter
+              words={['together']}
+              loop={5}
+              cursor
+              cursorStyle='_'
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+             
+            />
+          </span>
+        </h1></div>
         </SwiperSlide>
         <SwiperSlide>
           <div
@@ -141,7 +187,22 @@ const Slider = () => {
               backgroundImage: `url(${slide4})`,
               paddingBottom: "50%", 
             }}
-          ></div>
+          ><h1 className="font-bold text-center lg:text-6xl text-white" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'bold' }}>
+          Explore the world {' '}
+          <span className="text-orange-400" style={{ fontWeight: 'bold' }}>
+            {/* Style will be inherited from the parent element */}
+            <Typewriter
+              words={['together']}
+              loop={5}
+              cursor
+              cursorStyle='_'
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+             
+            />
+          </span>
+        </h1></div>
         </SwiperSlide>
       </Swiper>
     </div>

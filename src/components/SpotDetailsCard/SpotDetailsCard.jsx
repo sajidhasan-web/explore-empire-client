@@ -10,7 +10,7 @@ const SpotDetailsCard = () => {
     const [spot, setSpot] = useState({})
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/singleSpot/${id}`)
+        fetch(`https://b9a10-tourism-management-server.vercel.app/singleSpot/${id}`)
        .then(res => res.json())
        .then(data => {
         console.log(data);

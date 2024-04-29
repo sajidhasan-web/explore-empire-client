@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import { FaLocationArrow } from "react-icons/fa6";
+import { MdLocationOn } from "react-icons/md";
 
 const TouristSpotCard = ({spot}) => {
 
-    const { imageURL,
+    const { 
+        _id,
+        imageURL,
         touristsSpotName,
         selectedCountry,
         location,
@@ -12,31 +16,39 @@ const TouristSpotCard = ({spot}) => {
         travelTime,
         totalVisitorsPerYear } = spot
   return (
-    <div className="card card-compact bg-base-100 hover:scale-105 transition hover:shadow-xl p-4 border">
+    <div className="card card-compact bg-base-100 transition hover:shadow-xl p-4 border">
       <figure>
         <img
           src={imageURL}
           alt={touristsSpotName}
         />
       </figure>
-      <Link className=" ml-4"><span className="card-meta-item font-bold text-orange-300 hover:underline">{selectedCountry}</span></Link>
-      <div className="card-body">
+      <Link><span className="card-meta-item font-bold text-orange-300 hover:underline flex items-center gap-2"><MdLocationOn className="text-xl"></MdLocationOn> {selectedCountry}</span></Link>
+      <span className="flex items-center gap-2 text-sm text-blue-500"><FaLocationArrow></FaLocationArrow> {location}</span>
+      <div className="flex flex-col flex-grow">
         <h2 className="card-title">{touristsSpotName}</h2>
-        <p>{shortDescription.length > 50 && shortDescription.slice(0, 50)}</p>
+        <span>{shortDescription.length > 50 && shortDescription.slice(0, 50)}</span>
         <div>
-              <span>Location: {location}</span>
-              <span>Travel time: {travelTime}</span>
-              <span>Visitors:{totalVisitorsPerYear} per year</span>
-              <span>Average Cost: {averageCost}</span>
-              <span>Seasonality: {seasonality}</span>
+             
+              <div className="flex justify-between">
+              <span><span className="font-semibold">Travel time:</span> {travelTime}</span>
+              <span><span className="font-semibold">Visitors:</span> {totalVisitorsPerYear}<sup> <span className="text-[12px]">(per year)</span></sup></span>
+              </div>
+              <div>
+              <p><span className="font-semibold">Seasonality:</span> {seasonality}</p>
+              <p><span className="font-semibold">Average Cost:</span> {averageCost}</p>
             </div>
         </div>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary btn-sm">view details</button>
-        </div>
+       
       </div>
-  
+      <span className=" justify-end">
+        <Link to={`/spotCardDetails/${_id}`}>
+          <button className="btn btn-primary btn-sm">view details</button>
+        </Link>
+        </span>
+    </div>
   );
 };
+
 
 export default TouristSpotCard;

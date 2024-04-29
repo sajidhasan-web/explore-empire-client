@@ -12,6 +12,8 @@ import AllTouristsSpot from "../pages/AllTouristsSpot";
 import MyListPage from "../pages/MyListPage";
 import SpotDetailsCard from "../components/SpotDetailsCard/SpotDetailsCard";
 import UpdateSpot from "../components/UpdateSpot/UpdateSpot";
+import SpotCardDetails from "../pages/SpotCardDetails";
+
 
 
   const router = createBrowserRouter([
@@ -38,7 +40,7 @@ import UpdateSpot from "../components/UpdateSpot/UpdateSpot";
         },
         {
           path: "/updateSpot/:id",
-          element: <UpdateSpot></UpdateSpot>
+          element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>
         },
         {
             path: "/addTouristsSpot",
@@ -50,7 +52,12 @@ import UpdateSpot from "../components/UpdateSpot/UpdateSpot";
         },
         {
             path: "/myListPage",
-            element:<MyListPage></MyListPage>
+            element:<PrivateRoute><MyListPage></MyListPage></PrivateRoute>
+        },
+        {
+            path: "/spotCardDetails/:id",
+            element:<SpotCardDetails></SpotCardDetails>,
+            loader:({params})=> fetch(`https://b9a10-tourism-management-server.vercel.app/singleSpot/${params.id}`)
         }
       ]
     },

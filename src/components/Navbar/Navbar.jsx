@@ -15,8 +15,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     logOut()
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
         toast.success("User signed out successfully");
       })
       .catch((error) => {

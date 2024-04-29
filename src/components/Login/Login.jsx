@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../providers/FirebaseProvider";
@@ -8,17 +8,22 @@ import { AuthContext } from "../../providers/FirebaseProvider";
 const Login = () => {
  
     const {loginUser, logInWithGoogle} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
 
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+      
 
         loginUser(email, password)
         .then(result => {
             console.log(result.user)
             toast.success('User successfully logged in!')
+            navigate(from)
         })
         .catch(error => {
             console.log(error)
@@ -31,6 +36,7 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             toast.success('User successfully logged in!')
+            navigate(from)
 
         })
         .catch(error => {

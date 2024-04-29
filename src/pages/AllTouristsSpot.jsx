@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
+import TouristSpotCard from "../components/TouristSpotCard/TouristSpotCard";
 
 
 const AllTouristsSpot = () => {
 
     const [isLoading, setIsLoading] = useState(true);
-    const [touristsData, setTouristsData] = useState([]);
+    const [spotsInfo, setSpotsInfo] = useState([]);
   
     useEffect(() => {
-      fetch("http://localhost:5000/spots")
+      fetch("https://b9a10-tourism-management-server.vercel.app/spots")
         .then((response) => response.json())
         .then((data) => {
            console.log(data);
-          setTouristsData(data);
+          setSpotsInfo(data);
           setIsLoading(false);
         })
         .catch((error) => {
@@ -34,36 +35,15 @@ const AllTouristsSpot = () => {
 
 
   return (
-    <div className="container mx-auto">
-      <h1>All Tourists Spot {touristsData.length}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {
-        touristsData.map( touristsSpot => <>
-          <div>
-            <div className=" rounded overflow-hidden shadow-lg">
-              <img src={touristsData.imageURL} alt={touristsData.touristsSpotName} className="w-full" />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{touristsSpot.touristsSpotName}</div>
-                <p className="text-gray-700 text-base">
-                  Average Cost: {touristsSpot.averageCost} | Total Visitors Per Year:{" "}
-                  {touristsSpot.totalVisitorsPerYear} | Travel Time: {touristsSpot.travelTime} |
-                  Seasonality: {touristsSpot.seasonality}
-                </p>
-              </div>
-              <div className="px-6 py-4">
-                <a
-                  href="/view-details"
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                >
-                  View Details
-                </a>
-              </div>
-            </div>
-          </div>
-          </>
-        )}
-      </div>
+
+   
+   <div className="container mx-auto px-5 my-5 md:my-10 lg:my-12">
+    <h1 className="text-center font-bold text-3xl my-5 md:my-10 lg:my-12">All Tourist Spots</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {spotsInfo.map((spot) => <TouristSpotCard key={spot._id} spot={spot}></TouristSpotCard>)}
     </div>
+  </div> 
+
   );
 };
 
