@@ -13,7 +13,7 @@ ExploreEmpire is a web application designed to help users explore and discover e
 - Stay up-to-date with the latest travel trends and news.
 
 ## Getting Started
-To get started with ExploreEmpire, simply visit [our website](https://www.tourismexplorer.com) and start exploring! You can browse through different categories, search for specific destinations, and interact with other users in the community forum.
+To get started with ExploreEmpire, simply visit [our website](https://b9a10-tourism-management.web.app/) and start exploring! You can browse through different categories, search for specific destinations, and interact with other users in the community forum.
 
 ## Technologies Used
 - React.js
