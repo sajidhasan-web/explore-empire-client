@@ -13,6 +13,7 @@ import MyListPage from "../pages/MyListPage";
 import SpotDetailsCard from "../components/SpotDetailsCard/SpotDetailsCard";
 import UpdateSpot from "../components/UpdateSpot/UpdateSpot";
 import SpotCardDetails from "../pages/SpotCardDetails";
+import PecificCountrysSpots from "../pages/PecificCountrysSpots";
 
 
 
@@ -58,6 +59,11 @@ import SpotCardDetails from "../pages/SpotCardDetails";
             path: "/spotCardDetails/:id",
             element:<SpotCardDetails></SpotCardDetails>,
             loader:({params})=> fetch(`https://b9a10-tourism-management-server.vercel.app/singleSpot/${params.id}`)
+        },
+        {
+          path:"/spotsByCountry/:country",
+          element: <PecificCountrysSpots></PecificCountrysSpots>,
+          loader:({params})=> fetch(`https://b9a10-tourism-management-server.vercel.app/spotsByCountry/${params.country}`)
         }
       ]
     },

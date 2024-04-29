@@ -75,6 +75,8 @@ const UpdateSpot = () => {
       };
 
       
+
+      
     
       return (
         <div className=" container mx-auto  p-8 space-y-3 rounded-xl ">

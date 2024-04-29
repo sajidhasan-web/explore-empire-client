@@ -25,6 +25,7 @@ const MyListPage = () => {
   }, [user]);
 
  
+ 
   const handleDelete = (id) => {
     fetch(`https://b9a10-tourism-management-server.vercel.app/deleteSpot/${id}`, {
       method: "DELETE",
@@ -42,7 +43,7 @@ const MyListPage = () => {
   };
 
   return (
-    <div className="container mx-auto px-5 md:my-10 lg:my-12">
+    <div className="container mx-auto px-5 md:my-10 lg:my-12 h-[calc(100vh-80vh)] lg:h-[calc(100vh-400px)]">
       <div>
        
         <div className="overflow-x-auto">

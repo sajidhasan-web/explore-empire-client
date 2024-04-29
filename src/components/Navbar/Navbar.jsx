@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center p-5">
         <div>
           <h1 className="text-3xl font-bold text-white opacity-90">
-            Lets Tour
+          Explore<span className="text-orange-500">Empire</span>
           </h1>
         </div>
         <div className="hidden lg:flex">
@@ -196,8 +196,7 @@ const Navbar = () => {
               <img
                 className="rounded-full"
                 src={
-                  user?.photoURL ||
-                  "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  user?.photoURL
                 }
               />
             </div>
@@ -209,13 +208,27 @@ const Navbar = () => {
             <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"/register"}>Register</NavLink>
+            <NavLink to={"/addTouristsSpot"}>Add Tourists Spot</NavLink>
           </li>
           <li>
-            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/allTouristsSpot"}>All Tourists Spot</NavLink>
           </li>
           <li>
-            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/myListPage"}>My List Page</NavLink>
+          </li>
+          <li>
+            {
+              user? (
+                <button
+                  onClick={handleSignOut}
+                  className="btn btn-sm"
+                >SignOut</button>) : 
+                (<Link to={"/login"}>
+                  <button className="btn btn-sm">
+                    login
+                  </button>
+                </Link>)
+            }
           </li>
         </ul>
       </div>

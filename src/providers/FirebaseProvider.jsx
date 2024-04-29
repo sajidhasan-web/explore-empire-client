@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'; 
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider,  GithubAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 
@@ -10,6 +10,7 @@ const auth = getAuth(app)
 // social login auth
 
 const googleProvider = new GoogleAuthProvider()
+const githubProvider = new GithubAuthProvider()
 
 const FirebaseProvider = ({children}) => {
     const [user, setUser] = useState(null);
@@ -34,6 +35,10 @@ const FirebaseProvider = ({children}) => {
     const logInWithGoogle = () => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
+    }
+    const logInWithGithub = () => {
+        setLoading(true)
+        return signInWithPopup(auth, githubProvider)
     }
 
     const updateProfileInfo =(displayName, photoURL) => {
@@ -66,6 +71,7 @@ const FirebaseProvider = ({children}) => {
         logOut,
         loginUser,
         logInWithGoogle,
+        logInWithGithub,
         updateProfileInfo,
         loading
     }
