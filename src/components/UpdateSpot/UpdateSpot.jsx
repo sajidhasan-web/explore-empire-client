@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom'
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,7 @@ const UpdateSpot = () => {
 
     const [selectedCountry, setSelectedCountry] = useState('');
     const [spot, setSpot] = useState({})
+
     const {id} = useParams()
     console.log(id);
 
@@ -21,7 +22,7 @@ const UpdateSpot = () => {
        })
     },[id])
     
-        
+    // https://https://b9a10-tourism-management-server.vercel.app
     
       const handleChange = (event) => {
         setSelectedCountry(event.target.value);
@@ -36,7 +37,7 @@ const UpdateSpot = () => {
         const shortDescription = form.shortDescription.value;
         const averageCost = form.averageCost.value;
         const seasonality = form.seasonality.value;
-        const travelTime = form.travelTime.value + " " + "days";
+        const travelTime = form.travelTime.value
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
        const info = {
         imageURL,
@@ -71,7 +72,7 @@ const UpdateSpot = () => {
         });
 
         
-        form.reset()
+
       };
 
       

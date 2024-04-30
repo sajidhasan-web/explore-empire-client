@@ -36,7 +36,7 @@ const TouristSpotCard = ({spot}) => {
               </div>
               <div>
               <p><span className="font-semibold">Seasonality:</span> {seasonality}</p>
-              <p><span className="font-semibold">Average Cost:</span> {averageCost}</p>
+              <p><span className="font-semibold">Average Cost:</span> ${averageCost}</p>
             </div>
         </div>
        

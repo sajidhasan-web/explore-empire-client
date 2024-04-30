@@ -43,54 +43,44 @@ const MyListPage = () => {
   };
 
   return (
-    <div className="container mx-auto px-5 md:my-10 lg:my-12 h-[calc(100vh-80vh)] lg:h-[calc(100vh-400px)]">
-      <div>
-       
-        <div className="overflow-x-auto">
-            <table className="table">
-              {/* head */}
-              <thead>
-                <tr>
-                  
-                  <th>Tourists Spot Name</th>
-                  <th>Selected Country</th>
-                  <th>Average Cost</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                    myList.map(spot => <>
-                <tr key={spot._id}>
-                    <Link to={`/spotCardDetails/${spot._id}`}>
-                    
-                      <td className="hover:underline hover:text-blue-600">{spot.touristsSpotName}</td>
-                    </Link>
-                  <td>{spot.selectedCountry}</td>
-                  <td>{spot.averageCost}</td>
-                  <td className="space-x-2">
-                    <Link to={`/updateSpot/${spot._id}`}><button className="btn">update</button></Link>
-                    <button onClick={() => handleDelete(spot._id)} className="btn">delete</button>
-                    <Link to={`/spotCardDetails/${spot._id}`}><button className="btn">details</button></Link>
-                  </td>
-                </tr>
-                    </>)
-                }
-               
-              </tbody>
-            </table>
-          </div>
-   
-         
-          {/* // <div key={spot._id}>
-          //     <h1>{spot.name}</h1>
-          //     <p>{spot.description}</p>
-          //     <Link to={`/updateSpot/${spot._id}`}><button className="btn mr-4">Update</button></Link>
-          //     <button onClick={() => handleDelete(spot._id)} className="btn">Delete</button>
-          // </div> */}
+    <div className="container mx-auto px-5 md:my-10 lg:my-12 w-full">
+  <div>
+    <table className="table w-full">
+      {/* head */}
+      <thead>
+        <tr>
+          <th>Tourists Spot Name</th>
+          <th>Selected Country</th>
+          <th>Average Cost</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {myList.map((spot) => (
+          <tr key={spot._id}>
+            <td>
+              <Link to={`/spotCardDetails/${spot._id}`}>
+                <span className="hover:underline hover:text-blue-600">{spot.touristsSpotName}</span>
+              </Link>
+            </td>
+            <td>{spot.selectedCountry}</td>
+            <td>{spot.averageCost}</td>
+            <td className="space-x-2">
+              <Link to={`/updateSpot/${spot._id}`}>
+                <button className="btn">update</button>
+              </Link>
+              <button onClick={() => handleDelete(spot._id)} className="btn">delete</button>
+              <Link to={`/spotCardDetails/${spot._id}`}>
+                <button className="btn">details</button>
+              </Link>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
 
-      </div>
-    </div>
   );
 };
 

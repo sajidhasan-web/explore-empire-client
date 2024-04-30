@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/FirebaseProvider";
 
 
 const Login = () => {
- 
+    
     const {loginUser, logInWithGoogle, logInWithGithub} = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()

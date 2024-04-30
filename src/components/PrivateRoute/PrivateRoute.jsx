@@ -5,14 +5,14 @@ import { AuthContext } from "../../providers/FirebaseProvider";
 
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
-  const { user} = useContext(AuthContext);
-  // if (loading) {
-  //   return (
-  //     <div className="h-[calc(100vh-470px)] flex justify-center items-center">
-  //       <span className="loading loading-spinner loading-lg bg-primary"></span>
-  //     </div>
-  //   );
-  // }
+  const { user, loading} = useContext(AuthContext);
+  if (loading) {
+    return (
+      <div className="h-[calc(100vh-470px)] flex justify-center items-center">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+      </div>
+    );
+  }
   if (!user) {
     return <Navigate to="/login" state={location?.pathname || "/"} />;
   }

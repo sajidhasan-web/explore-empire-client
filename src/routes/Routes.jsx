@@ -41,7 +41,8 @@ import PecificCountrysSpots from "../pages/PecificCountrysSpots";
         },
         {
           path: "/updateSpot/:id",
-          element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>
+          element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>,
+          loader: ({params})=> fetch(`https://b9a10-tourism-management-server.vercel.app/updateSpot/${params.id}`)
         },
         {
             path: "/addTouristsSpot",
